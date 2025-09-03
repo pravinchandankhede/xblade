@@ -1,0 +1,6 @@
+/* Shell component specific styles - minimal, most styles in global */
+.shell-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
