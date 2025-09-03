@@ -11,12 +11,12 @@ import { BladeLoaderComponent } from './blade-loader';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ShellComponent,
-    HeaderComponent,
-    FooterComponent,
-    WorkingAreaComponent,
-    BladeLoaderComponent
+    //AppComponent,
+    //ShellComponent,
+    //HeaderComponent,
+    //FooterComponent,
+    //WorkingAreaComponent,
+    //BladeLoaderComponent
   ],
   imports: [
     BrowserModule,
