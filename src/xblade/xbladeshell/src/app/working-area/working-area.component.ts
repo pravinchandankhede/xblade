@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-working-area',
@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
     styleUrls: ['./working-area.component.css'],
     standalone: true,
     imports: [
-
+        RouterOutlet
     ]
 })
 export class WorkingAreaComponent { }
