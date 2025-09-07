@@ -1,4 +1,27 @@
 <main class="app-working-area">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading landing page...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="error-container">
+    <div class="error-message">
+      <h3>Error Loading Landing Page</h3>
+      <p>{{ error }}</p>
+      <button class="btn btn-primary" (click)="refreshLandingPage()">
+        <i class="icon icon-refresh"></i> Retry
+      </button>
+    </div>
+  </div>
+
+  <!-- Dynamic Content -->
+  <div *ngIf="!isLoading && !error" class="dynamic-content-container">
+    <div #dynamicContent class="dynamic-content"></div>
+  </div>
+
+  <!-- Fallback Router Outlet -->
   <router-outlet></router-outlet>
   <ng-content></ng-content>
 </main>

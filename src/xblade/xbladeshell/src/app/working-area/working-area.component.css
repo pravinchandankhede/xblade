@@ -1,1 +1,294 @@
 /* Working area component specific styles - minimal, most styles in global */
+
+.app-working-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Loading States */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #666;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #0078d4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error States */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.error-message {
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 500px;
+}
+
+.error-message h3 {
+  color: #d13438;
+  margin-bottom: 16px;
+}
+
+.error-message p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Dynamic Content */
+.dynamic-content-container {
+  flex: 1;
+}
+
+.dynamic-content {
+  width: 100%;
+}
+
+/* Landing Page Specific Styles */
+.landing-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #323130;
+  border-bottom: 2px solid #0078d4;
+  padding-bottom: 10px;
+}
+
+/* Recent Icons Grid */
+.recent-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.service-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-height: 120px;
+}
+
+.service-icon-container:hover {
+  border-color: #0078d4;
+  box-shadow: 0 4px 12px rgba(0,120,212,0.15);
+  transform: translateY(-2px);
+}
+
+.service-icon-container .icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #0078d4;
+}
+
+.service-name {
+  font-weight: 600;
+  color: #323130;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.service-description {
+  color: #605e5c;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Recent Services Grid */
+.recent-services-grid {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.services-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.services-table th {
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #323130;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.services-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f2f1;
+  color: #323130;
+}
+
+.services-table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.services-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-running {
+  background-color: #dff6dd;
+  color: #107c10;
+}
+
+.status-stopped {
+  background-color: #fde7e9;
+  color: #d13438;
+}
+
+.status-available {
+  background-color: #e1f3ff;
+  color: #0078d4;
+}
+
+.status-online {
+  background-color: #dff6dd;
+  color: #107c10;
+}
+
+.status-active {
+  background-color: #fff4ce;
+  color: #8a6914;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #0078d4;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #106ebe;
+}
+
+.btn-secondary {
+  background-color: #f3f2f1;
+  color: #323130;
+  border: 1px solid #e1e1e1;
+}
+
+.btn-secondary:hover {
+  background-color: #e1dfdd;
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* Icons */
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.icon-virtual-machine::before { content: "🖥️"; }
+.icon-storage-account::before { content: "💾"; }
+.icon-sql-database::before { content: "🗄️"; }
+.icon-web-app::before { content: "🌐"; }
+.icon-key-vault::before { content: "🔐"; }
+.icon-monitor::before { content: "📊"; }
+.icon-cosmos-db::before { content: "🌍"; }
+.icon-function-app::before { content: "⚡"; }
+.icon-kubernetes::before { content: "☸️"; }
+.icon-redis-cache::before { content: "📦"; }
+.icon-service-bus::before { content: "📮"; }
+.icon-plus::before { content: "➕"; }
+.icon-list::before { content: "📋"; }
+.icon-folder::before { content: "📁"; }
+.icon-chart::before { content: "📈"; }
+.icon-refresh::before { content: "🔄"; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-working-area {
+    padding: 10px;
+  }
+  
+  .recent-icons-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  
+  .service-icon-container {
+    padding: 16px 12px;
+    min-height: 100px;
+  }
+  
+  .services-table {
+    font-size: 12px;
+  }
+  
+  .services-table th,
+  .services-table td {
+    padding: 8px 12px;
+  }
+}

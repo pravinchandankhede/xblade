@@ -1,0 +1,418 @@
+{
+  "specVersion": "1.0.0",
+  "name": "landingpage",
+  "bladeName": "Landing Page",
+  "bladeType": "home",
+  "layout": [
+    {
+      "type": "section",
+      "id": "header-section",
+      "title": "Welcome to XBlade Portal",
+      "cssClass": "landing-header",
+      "elements": [
+        {
+          "type": "label",
+          "id": "welcome-message",
+          "text": "Welcome back! Quick access to your most used services.",
+          "cssClass": "welcome-text"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "recent-icons-section",
+      "title": "Recently Used",
+      "cssClass": "recent-icons-section",
+      "elements": [
+        {
+          "type": "grid",
+          "id": "recent-icons-grid",
+          "cssClass": "recent-icons-grid",
+          "columns": [
+            {
+              "field": "icon",
+              "header": "",
+              "type": "custom",
+              "width": "80px",
+              "template": "icon-template"
+            },
+            {
+              "field": "name",
+              "header": "",
+              "type": "text",
+              "width": "auto",
+              "template": "name-template"
+            }
+          ],
+          "data": [
+            {
+              "id": "vm1",
+              "icon": "virtual-machine",
+              "name": "Virtual Machines",
+              "description": "Create and manage virtual machines",
+              "lastUsed": "2025-09-07T10:30:00Z",
+              "category": "compute"
+            },
+            {
+              "id": "storage1",
+              "icon": "storage-account",
+              "name": "Storage Accounts",
+              "description": "Manage blob, file, queue storage",
+              "lastUsed": "2025-09-07T09:15:00Z",
+              "category": "storage"
+            },
+            {
+              "id": "sql1",
+              "icon": "sql-database",
+              "name": "SQL Databases",
+              "description": "Manage SQL databases and servers",
+              "lastUsed": "2025-09-07T08:45:00Z",
+              "category": "database"
+            },
+            {
+              "id": "webapp1",
+              "icon": "web-app",
+              "name": "App Services",
+              "description": "Host web applications and APIs",
+              "lastUsed": "2025-09-06T16:20:00Z",
+              "category": "web"
+            },
+            {
+              "id": "keyvault1",
+              "icon": "key-vault",
+              "name": "Key Vault",
+              "description": "Manage secrets and certificates",
+              "lastUsed": "2025-09-06T14:10:00Z",
+              "category": "security"
+            },
+            {
+              "id": "monitor1",
+              "icon": "monitor",
+              "name": "Monitor",
+              "description": "Application and infrastructure monitoring",
+              "lastUsed": "2025-09-06T13:30:00Z",
+              "category": "management"
+            }
+          ],
+          "selectable": true,
+          "sortable": false,
+          "filterable": false,
+          "pageable": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "recent-services-section",
+      "title": "Recently Used Services",
+      "cssClass": "recent-services-section",
+      "elements": [
+        {
+          "type": "grid",
+          "id": "recent-services-grid",
+          "cssClass": "recent-services-grid three-column-layout",
+          "columns": [
+            {
+              "field": "name",
+              "header": "Service Name",
+              "type": "text",
+              "width": "200px",
+              "sortable": true
+            },
+            {
+              "field": "resourceGroup",
+              "header": "Resource Group",
+              "type": "text",
+              "width": "150px",
+              "sortable": true
+            },
+            {
+              "field": "location",
+              "header": "Location",
+              "type": "text",
+              "width": "120px",
+              "sortable": true
+            },
+            {
+              "field": "status",
+              "header": "Status",
+              "type": "custom",
+              "width": "100px",
+              "template": "status-badge-template"
+            },
+            {
+              "field": "lastAccessed",
+              "header": "Last Accessed",
+              "type": "date",
+              "width": "140px",
+              "sortable": true
+            },
+            {
+              "field": "actions",
+              "header": "Actions",
+              "type": "custom",
+              "width": "120px",
+              "template": "action-buttons-template"
+            }
+          ],
+          "data": [
+            {
+              "id": "vm-prod-web01",
+              "name": "vm-prod-web01",
+              "type": "Virtual Machine",
+              "resourceGroup": "rg-production",
+              "location": "East US",
+              "status": "Running",
+              "lastAccessed": "2025-09-07T10:30:00Z",
+              "icon": "virtual-machine"
+            },
+            {
+              "id": "storage-prod-data",
+              "name": "storageproddata001",
+              "type": "Storage Account",
+              "resourceGroup": "rg-production",
+              "location": "East US",
+              "status": "Available",
+              "lastAccessed": "2025-09-07T09:15:00Z",
+              "icon": "storage-account"
+            },
+            {
+              "id": "sql-prod-db",
+              "name": "sql-prod-database",
+              "type": "SQL Database",
+              "resourceGroup": "rg-database",
+              "location": "East US 2",
+              "status": "Online",
+              "lastAccessed": "2025-09-07T08:45:00Z",
+              "icon": "sql-database"
+            },
+            {
+              "id": "webapp-api-prod",
+              "name": "webapp-api-prod",
+              "type": "App Service",
+              "resourceGroup": "rg-web",
+              "location": "West US",
+              "status": "Running",
+              "lastAccessed": "2025-09-06T16:20:00Z",
+              "icon": "web-app"
+            },
+            {
+              "id": "kv-prod-secrets",
+              "name": "kv-prod-secrets",
+              "type": "Key Vault",
+              "resourceGroup": "rg-security",
+              "location": "Central US",
+              "status": "Available",
+              "lastAccessed": "2025-09-06T14:10:00Z",
+              "icon": "key-vault"
+            },
+            {
+              "id": "vm-dev-test01",
+              "name": "vm-dev-test01",
+              "type": "Virtual Machine",
+              "resourceGroup": "rg-development",
+              "location": "West US 2",
+              "status": "Stopped",
+              "lastAccessed": "2025-09-06T13:30:00Z",
+              "icon": "virtual-machine"
+            },
+            {
+              "id": "func-prod-api",
+              "name": "func-prod-api",
+              "type": "Function App",
+              "resourceGroup": "rg-serverless",
+              "location": "East US",
+              "status": "Running",
+              "lastAccessed": "2025-09-06T12:45:00Z",
+              "icon": "function-app"
+            },
+            {
+              "id": "cosmos-prod-data",
+              "name": "cosmos-prod-data",
+              "type": "Cosmos DB",
+              "resourceGroup": "rg-database",
+              "location": "West Europe",
+              "status": "Online",
+              "lastAccessed": "2025-09-06T11:20:00Z",
+              "icon": "cosmos-db"
+            },
+            {
+              "id": "aks-prod-cluster",
+              "name": "aks-prod-cluster",
+              "type": "Kubernetes Service",
+              "resourceGroup": "rg-containers",
+              "location": "East US",
+              "status": "Running",
+              "lastAccessed": "2025-09-06T10:15:00Z",
+              "icon": "kubernetes"
+            }
+          ],
+          "selectable": true,
+          "multiSelect": false,
+          "sortable": true,
+          "filterable": true,
+          "pageable": true,
+          "pageSize": 10
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "quick-actions-section",
+      "title": "Quick Actions",
+      "cssClass": "quick-actions-section",
+      "elements": [
+        {
+          "type": "button",
+          "id": "create-resource-btn",
+          "text": "Create a Resource",
+          "variant": "primary",
+          "icon": "plus",
+          "cssClass": "quick-action-button"
+        },
+        {
+          "type": "button",
+          "id": "view-all-resources-btn",
+          "text": "All Resources",
+          "variant": "secondary",
+          "icon": "list",
+          "cssClass": "quick-action-button"
+        },
+        {
+          "type": "button",
+          "id": "resource-groups-btn",
+          "text": "Resource Groups",
+          "variant": "secondary",
+          "icon": "folder",
+          "cssClass": "quick-action-button"
+        },
+        {
+          "type": "button",
+          "id": "cost-management-btn",
+          "text": "Cost Management",
+          "variant": "secondary",
+          "icon": "chart",
+          "cssClass": "quick-action-button"
+        }
+      ]
+    }
+  ],
+  "templates": {
+    "icon-template": {
+      "html": "<div class='service-icon-container'><i class='icon icon-{{icon}}'></i><span class='service-name'>{{name}}</span></div>"
+    },
+    "name-template": {
+      "html": "<div class='service-name-container'><strong>{{name}}</strong><small>{{description}}</small></div>"
+    },
+    "status-badge-template": {
+      "html": "<span class='status-badge status-{{status | lowercase}}'>{{status}}</span>"
+    },
+    "action-buttons-template": {
+      "html": "<div class='action-buttons'><button class='btn btn-sm btn-primary' onclick='openResource(\"{{id}}\")'>Open</button><button class='btn btn-sm btn-secondary' onclick='manageResource(\"{{id}}\")'>Manage</button></div>"
+    }
+  },
+  "styles": {
+    ".landing-header": {
+      "margin-bottom": "20px",
+      "padding": "20px",
+      "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "color": "white",
+      "border-radius": "8px"
+    },
+    ".welcome-text": {
+      "font-size": "18px",
+      "font-weight": "300"
+    },
+    ".recent-icons-section": {
+      "margin-bottom": "30px"
+    },
+    ".recent-icons-grid": {
+      "display": "grid",
+      "grid-template-columns": "repeat(auto-fit, minmax(200px, 1fr))",
+      "gap": "15px",
+      "padding": "20px 0"
+    },
+    ".service-icon-container": {
+      "display": "flex",
+      "flex-direction": "column",
+      "align-items": "center",
+      "padding": "20px",
+      "border": "1px solid #e1e1e1",
+      "border-radius": "8px",
+      "cursor": "pointer",
+      "transition": "all 0.3s ease",
+      "text-align": "center"
+    },
+    ".service-icon-container:hover": {
+      "border-color": "#0078d4",
+      "box-shadow": "0 4px 8px rgba(0,120,212,0.2)",
+      "transform": "translateY(-2px)"
+    },
+    ".service-icon-container .icon": {
+      "font-size": "32px",
+      "margin-bottom": "10px",
+      "color": "#0078d4"
+    },
+    ".service-name": {
+      "font-weight": "500",
+      "color": "#323130"
+    },
+    ".recent-services-section": {
+      "margin-bottom": "30px"
+    },
+    ".three-column-layout": {
+      "max-width": "100%",
+      "overflow-x": "auto"
+    },
+    ".status-badge": {
+      "padding": "4px 8px",
+      "border-radius": "4px",
+      "font-size": "12px",
+      "font-weight": "500",
+      "text-transform": "uppercase"
+    },
+    ".status-running": {
+      "background-color": "#dff6dd",
+      "color": "#107c10"
+    },
+    ".status-stopped": {
+      "background-color": "#fde7e9",
+      "color": "#d13438"
+    },
+    ".status-available": {
+      "background-color": "#e1f3ff",
+      "color": "#0078d4"
+    },
+    ".status-online": {
+      "background-color": "#dff6dd",
+      "color": "#107c10"
+    },
+    ".action-buttons": {
+      "display": "flex",
+      "gap": "5px"
+    },
+    ".action-buttons .btn": {
+      "padding": "4px 8px",
+      "font-size": "12px"
+    },
+    ".quick-actions-section": {
+      "padding": "20px",
+      "background-color": "#f8f9fa",
+      "border-radius": "8px"
+    },
+    ".quick-action-button": {
+      "margin-right": "10px",
+      "margin-bottom": "10px"
+    }
+  },
+  "events": {
+    "openResource": {
+      "type": "navigation",
+      "target": "/resource/{{resourceId}}"
+    },
+    "manageResource": {
+      "type": "action",
+      "handler": "showResourceManagement"
+    }
+  }
+}

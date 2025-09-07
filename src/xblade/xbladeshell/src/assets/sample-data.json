@@ -1,0 +1,362 @@
+{
+  "recentIcons": [
+    {
+      "id": "vm1",
+      "name": "Virtual Machines",
+      "type": "Microsoft.Compute/virtualMachines",
+      "icon": "virtual-machine",
+      "description": "Create and manage virtual machines",
+      "lastUsed": "2025-09-07T10:30:00Z",
+      "category": "compute"
+    },
+    {
+      "id": "storage1",
+      "name": "Storage Accounts",
+      "type": "Microsoft.Storage/storageAccounts",
+      "icon": "storage-account",
+      "description": "Manage blob, file, queue storage",
+      "lastUsed": "2025-09-07T09:15:00Z",
+      "category": "storage"
+    },
+    {
+      "id": "sql1",
+      "name": "SQL Databases",
+      "type": "Microsoft.Sql/servers/databases",
+      "icon": "sql-database",
+      "description": "Manage SQL databases and servers",
+      "lastUsed": "2025-09-07T08:45:00Z",
+      "category": "database"
+    },
+    {
+      "id": "webapp1",
+      "name": "App Services",
+      "type": "Microsoft.Web/sites",
+      "icon": "web-app",
+      "description": "Host web applications and APIs",
+      "lastUsed": "2025-09-06T16:20:00Z",
+      "category": "web"
+    },
+    {
+      "id": "keyvault1",
+      "name": "Key Vault",
+      "type": "Microsoft.KeyVault/vaults",
+      "icon": "key-vault",
+      "description": "Manage secrets and certificates",
+      "lastUsed": "2025-09-06T14:10:00Z",
+      "category": "security"
+    },
+    {
+      "id": "monitor1",
+      "name": "Monitor",
+      "type": "Microsoft.Insights/components",
+      "icon": "monitor",
+      "description": "Application and infrastructure monitoring",
+      "lastUsed": "2025-09-06T13:30:00Z",
+      "category": "management"
+    },
+    {
+      "id": "cosmosdb1",
+      "name": "Cosmos DB",
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "icon": "cosmos-db",
+      "description": "Globally distributed database service",
+      "lastUsed": "2025-09-06T12:15:00Z",
+      "category": "database"
+    },
+    {
+      "id": "functions1",
+      "name": "Function Apps",
+      "type": "Microsoft.Web/sites",
+      "icon": "function-app",
+      "description": "Serverless compute service",
+      "lastUsed": "2025-09-06T11:00:00Z",
+      "category": "serverless"
+    }
+  ],
+  "recentServices": [
+    {
+      "id": "vm-prod-web01",
+      "name": "vm-prod-web01",
+      "type": "Virtual Machine",
+      "icon": "virtual-machine",
+      "description": "Production web server",
+      "resourceGroup": "rg-production",
+      "location": "East US",
+      "status": "Running",
+      "lastUsed": "2025-09-07T10:30:00Z",
+      "category": "compute"
+    },
+    {
+      "id": "vm-prod-web02",
+      "name": "vm-prod-web02",
+      "type": "Virtual Machine",
+      "icon": "virtual-machine",
+      "description": "Production web server backup",
+      "resourceGroup": "rg-production",
+      "location": "East US",
+      "status": "Running",
+      "lastUsed": "2025-09-07T10:25:00Z",
+      "category": "compute"
+    },
+    {
+      "id": "storage-prod-data",
+      "name": "storageproddata001",
+      "type": "Storage Account",
+      "icon": "storage-account",
+      "description": "Production data storage",
+      "resourceGroup": "rg-production",
+      "location": "East US",
+      "status": "Available",
+      "lastUsed": "2025-09-07T09:15:00Z",
+      "category": "storage"
+    },
+    {
+      "id": "storage-backup-data",
+      "name": "storagebackupdata001",
+      "type": "Storage Account",
+      "icon": "storage-account",
+      "description": "Backup data storage",
+      "resourceGroup": "rg-backup",
+      "location": "West US",
+      "status": "Available",
+      "lastUsed": "2025-09-07T09:00:00Z",
+      "category": "storage"
+    },
+    {
+      "id": "sql-prod-db",
+      "name": "sql-prod-database",
+      "type": "SQL Database",
+      "icon": "sql-database",
+      "description": "Main production database",
+      "resourceGroup": "rg-database",
+      "location": "East US 2",
+      "status": "Online",
+      "lastUsed": "2025-09-07T08:45:00Z",
+      "category": "database"
+    },
+    {
+      "id": "sql-staging-db",
+      "name": "sql-staging-database",
+      "type": "SQL Database",
+      "icon": "sql-database",
+      "description": "Staging environment database",
+      "resourceGroup": "rg-staging",
+      "location": "Central US",
+      "status": "Online",
+      "lastUsed": "2025-09-07T08:30:00Z",
+      "category": "database"
+    },
+    {
+      "id": "webapp-api-prod",
+      "name": "webapp-api-prod",
+      "type": "App Service",
+      "icon": "web-app",
+      "description": "Production API service",
+      "resourceGroup": "rg-web",
+      "location": "West US",
+      "status": "Running",
+      "lastUsed": "2025-09-06T16:20:00Z",
+      "category": "web"
+    },
+    {
+      "id": "webapp-frontend-prod",
+      "name": "webapp-frontend-prod",
+      "type": "App Service",
+      "icon": "web-app",
+      "description": "Production frontend application",
+      "resourceGroup": "rg-web",
+      "location": "West US",
+      "status": "Running",
+      "lastUsed": "2025-09-06T16:15:00Z",
+      "category": "web"
+    },
+    {
+      "id": "kv-prod-secrets",
+      "name": "kv-prod-secrets",
+      "type": "Key Vault",
+      "icon": "key-vault",
+      "description": "Production secrets and certificates",
+      "resourceGroup": "rg-security",
+      "location": "Central US",
+      "status": "Available",
+      "lastUsed": "2025-09-06T14:10:00Z",
+      "category": "security"
+    },
+    {
+      "id": "kv-dev-secrets",
+      "name": "kv-dev-secrets",
+      "type": "Key Vault",
+      "icon": "key-vault",
+      "description": "Development secrets",
+      "resourceGroup": "rg-development",
+      "location": "East US",
+      "status": "Available",
+      "lastUsed": "2025-09-06T14:05:00Z",
+      "category": "security"
+    },
+    {
+      "id": "vm-dev-test01",
+      "name": "vm-dev-test01",
+      "type": "Virtual Machine",
+      "icon": "virtual-machine",
+      "description": "Development testing environment",
+      "resourceGroup": "rg-development",
+      "location": "West US 2",
+      "status": "Stopped",
+      "lastUsed": "2025-09-06T13:30:00Z",
+      "category": "compute"
+    },
+    {
+      "id": "vm-qa-test01",
+      "name": "vm-qa-test01",
+      "type": "Virtual Machine",
+      "icon": "virtual-machine",
+      "description": "QA testing environment",
+      "resourceGroup": "rg-qa",
+      "location": "West US 2",
+      "status": "Running",
+      "lastUsed": "2025-09-06T13:25:00Z",
+      "category": "compute"
+    },
+    {
+      "id": "func-prod-api",
+      "name": "func-prod-api",
+      "type": "Function App",
+      "icon": "function-app",
+      "description": "Production serverless functions",
+      "resourceGroup": "rg-serverless",
+      "location": "East US",
+      "status": "Running",
+      "lastUsed": "2025-09-06T12:45:00Z",
+      "category": "serverless"
+    },
+    {
+      "id": "func-data-processor",
+      "name": "func-data-processor",
+      "type": "Function App",
+      "icon": "function-app",
+      "description": "Data processing functions",
+      "resourceGroup": "rg-serverless",
+      "location": "East US",
+      "status": "Running",
+      "lastUsed": "2025-09-06T12:40:00Z",
+      "category": "serverless"
+    },
+    {
+      "id": "cosmos-prod-data",
+      "name": "cosmos-prod-data",
+      "type": "Cosmos DB",
+      "icon": "cosmos-db",
+      "description": "Production NoSQL database",
+      "resourceGroup": "rg-database",
+      "location": "West Europe",
+      "status": "Online",
+      "lastUsed": "2025-09-06T11:20:00Z",
+      "category": "database"
+    },
+    {
+      "id": "cosmos-user-profiles",
+      "name": "cosmos-user-profiles",
+      "type": "Cosmos DB",
+      "icon": "cosmos-db",
+      "description": "User profile data storage",
+      "resourceGroup": "rg-database",
+      "location": "West Europe",
+      "status": "Online",
+      "lastUsed": "2025-09-06T11:15:00Z",
+      "category": "database"
+    },
+    {
+      "id": "aks-prod-cluster",
+      "name": "aks-prod-cluster",
+      "type": "Kubernetes Service",
+      "icon": "kubernetes",
+      "description": "Production Kubernetes cluster",
+      "resourceGroup": "rg-containers",
+      "location": "East US",
+      "status": "Running",
+      "lastUsed": "2025-09-06T10:15:00Z",
+      "category": "containers"
+    },
+    {
+      "id": "aks-staging-cluster",
+      "name": "aks-staging-cluster",
+      "type": "Kubernetes Service",
+      "icon": "kubernetes",
+      "description": "Staging Kubernetes cluster",
+      "resourceGroup": "rg-containers",
+      "location": "Central US",
+      "status": "Running",
+      "lastUsed": "2025-09-06T10:10:00Z",
+      "category": "containers"
+    },
+    {
+      "id": "redis-prod-cache",
+      "name": "redis-prod-cache",
+      "type": "Redis Cache",
+      "icon": "redis-cache",
+      "description": "Production Redis cache",
+      "resourceGroup": "rg-cache",
+      "location": "East US",
+      "status": "Running",
+      "lastUsed": "2025-09-06T09:30:00Z",
+      "category": "cache"
+    },
+    {
+      "id": "servicebus-prod",
+      "name": "servicebus-prod",
+      "type": "Service Bus",
+      "icon": "service-bus",
+      "description": "Production message queue",
+      "resourceGroup": "rg-messaging",
+      "location": "East US",
+      "status": "Active",
+      "lastUsed": "2025-09-06T09:15:00Z",
+      "category": "messaging"
+    }
+  ],
+  "quickActions": [
+    {
+      "id": "create-vm",
+      "name": "Create Virtual Machine",
+      "icon": "plus",
+      "action": "create",
+      "resourceType": "Microsoft.Compute/virtualMachines"
+    },
+    {
+      "id": "create-storage",
+      "name": "Create Storage Account",
+      "icon": "plus",
+      "action": "create",
+      "resourceType": "Microsoft.Storage/storageAccounts"
+    },
+    {
+      "id": "create-webapp",
+      "name": "Create Web App",
+      "icon": "plus",
+      "action": "create",
+      "resourceType": "Microsoft.Web/sites"
+    },
+    {
+      "id": "view-all-resources",
+      "name": "All Resources",
+      "icon": "list",
+      "action": "navigate",
+      "target": "/resources"
+    },
+    {
+      "id": "resource-groups",
+      "name": "Resource Groups",
+      "icon": "folder",
+      "action": "navigate",
+      "target": "/resource-groups"
+    },
+    {
+      "id": "cost-management",
+      "name": "Cost Management",
+      "icon": "chart",
+      "action": "navigate",
+      "target": "/cost-management"
+    }
+  ]
+}

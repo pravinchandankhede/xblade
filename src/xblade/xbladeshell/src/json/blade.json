@@ -1,0 +1,26 @@
+[
+    {
+        "name": "LandingPage",
+        "type": "page",
+        "layout": [
+            {
+                "type": "section",
+                "elements":[
+                    {
+                        "type": "text",
+                        "content": "Welcome to the Landing Page"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "elements":[
+                    {
+                        "type": "grid",
+                        "content": "This is list of resources"
+                    }
+                ]
+            }
+        ]
+    }
+]

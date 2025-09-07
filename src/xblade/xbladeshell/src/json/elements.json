@@ -1,0 +1,298 @@
+{
+  "supportedElements": [
+    {
+      "type": "textbox",
+      "displayName": "Text Box",
+      "description": "Single-line text input control",
+      "properties": {
+        "placeholder": "string",
+        "maxLength": "number",
+        "required": "boolean",
+        "readonly": "boolean",
+        "validation": "regex"
+      }
+    },
+    {
+      "type": "textarea",
+      "displayName": "Text Area",
+      "description": "Multi-line text input control",
+      "properties": {
+        "placeholder": "string",
+        "rows": "number",
+        "maxLength": "number",
+        "required": "boolean",
+        "readonly": "boolean"
+      }
+    },
+    {
+      "type": "dropdown",
+      "displayName": "Dropdown",
+      "description": "Single selection from a list of options",
+      "properties": {
+        "options": "array",
+        "required": "boolean",
+        "defaultValue": "string",
+        "placeholder": "string"
+      }
+    },
+    {
+      "type": "singlechoice",
+      "displayName": "Radio Button Group",
+      "description": "Single selection from radio button options",
+      "properties": {
+        "options": "array",
+        "required": "boolean",
+        "defaultValue": "string",
+        "orientation": "vertical|horizontal"
+      }
+    },
+    {
+      "type": "multichoice",
+      "displayName": "Checkbox Group",
+      "description": "Multiple selection from checkbox options",
+      "properties": {
+        "options": "array",
+        "required": "boolean",
+        "defaultValues": "array",
+        "orientation": "vertical|horizontal"
+      }
+    },
+    {
+      "type": "numeric",
+      "displayName": "Numeric Input",
+      "description": "Numeric input with validation",
+      "properties": {
+        "min": "number",
+        "max": "number",
+        "step": "number",
+        "required": "boolean",
+        "decimals": "number",
+        "format": "integer|decimal|currency|percentage"
+      }
+    },
+    {
+      "type": "date",
+      "displayName": "Date Picker",
+      "description": "Date selection control",
+      "properties": {
+        "format": "string",
+        "minDate": "date",
+        "maxDate": "date",
+        "required": "boolean",
+        "showTime": "boolean"
+      }
+    },
+    {
+      "type": "datetime",
+      "displayName": "Date Time Picker",
+      "description": "Date and time selection control",
+      "properties": {
+        "format": "string",
+        "minDateTime": "datetime",
+        "maxDateTime": "datetime",
+        "required": "boolean",
+        "timeFormat": "12h|24h"
+      }
+    },
+    {
+      "type": "toggle",
+      "displayName": "Toggle Switch",
+      "description": "Two-state toggle control (on/off)",
+      "properties": {
+        "defaultValue": "boolean",
+        "onText": "string",
+        "offText": "string",
+        "required": "boolean"
+      }
+    },
+    {
+      "type": "toggle3state",
+      "displayName": "Three State Toggle",
+      "description": "Three-state toggle control (on/off/indeterminate)",
+      "properties": {
+        "defaultValue": "true|false|indeterminate",
+        "onText": "string",
+        "offText": "string",
+        "indeterminateText": "string",
+        "required": "boolean"
+      }
+    },
+    {
+      "type": "slider",
+      "displayName": "Slider",
+      "description": "Range slider for numeric values",
+      "properties": {
+        "min": "number",
+        "max": "number",
+        "step": "number",
+        "defaultValue": "number",
+        "showLabels": "boolean",
+        "showTicks": "boolean"
+      }
+    },
+    {
+      "type": "list",
+      "displayName": "List View",
+      "description": "Vertical list of items",
+      "properties": {
+        "items": "array",
+        "selectable": "boolean",
+        "multiSelect": "boolean",
+        "searchable": "boolean",
+        "sortable": "boolean",
+        "itemTemplate": "object"
+      }
+    },
+    {
+      "type": "grid",
+      "displayName": "Data Grid",
+      "description": "Tabular data display with columns and rows",
+      "properties": {
+        "columns": "array",
+        "data": "array",
+        "selectable": "boolean",
+        "multiSelect": "boolean",
+        "sortable": "boolean",
+        "filterable": "boolean",
+        "pageable": "boolean",
+        "pageSize": "number"
+      }
+    },
+    {
+      "type": "button",
+      "displayName": "Button",
+      "description": "Clickable button control",
+      "properties": {
+        "text": "string",
+        "variant": "primary|secondary|danger|success|warning",
+        "disabled": "boolean",
+        "icon": "string",
+        "size": "small|medium|large"
+      }
+    },
+    {
+      "type": "link",
+      "displayName": "Link",
+      "description": "Hyperlink control",
+      "properties": {
+        "text": "string",
+        "url": "string",
+        "target": "_blank|_self|_parent|_top",
+        "disabled": "boolean"
+      }
+    },
+    {
+      "type": "label",
+      "displayName": "Label",
+      "description": "Text label for form elements",
+      "properties": {
+        "text": "string",
+        "for": "string",
+        "required": "boolean"
+      }
+    },
+    {
+      "type": "section",
+      "displayName": "Section",
+      "description": "Container for grouping elements",
+      "properties": {
+        "title": "string",
+        "collapsible": "boolean",
+        "collapsed": "boolean",
+        "elements": "array"
+      }
+    },
+    {
+      "type": "tabs",
+      "displayName": "Tab Container",
+      "description": "Tabbed interface container",
+      "properties": {
+        "tabs": "array",
+        "activeTab": "string",
+        "orientation": "horizontal|vertical"
+      }
+    },
+    {
+      "type": "panel",
+      "displayName": "Panel",
+      "description": "Generic container panel",
+      "properties": {
+        "title": "string",
+        "variant": "default|info|warning|error|success",
+        "elements": "array"
+      }
+    },
+    {
+      "type": "fileupload",
+      "displayName": "File Upload",
+      "description": "File upload control",
+      "properties": {
+        "accept": "string",
+        "multiple": "boolean",
+        "maxSize": "number",
+        "required": "boolean",
+        "dragDrop": "boolean"
+      }
+    },
+    {
+      "type": "progress",
+      "displayName": "Progress Bar",
+      "description": "Progress indicator",
+      "properties": {
+        "value": "number",
+        "max": "number",
+        "showPercentage": "boolean",
+        "variant": "default|success|warning|error"
+      }
+    },
+    {
+      "type": "spinner",
+      "displayName": "Loading Spinner",
+      "description": "Loading indicator",
+      "properties": {
+        "size": "small|medium|large",
+        "text": "string"
+      }
+    },
+    {
+      "type": "alert",
+      "displayName": "Alert",
+      "description": "Alert message display",
+      "properties": {
+        "message": "string",
+        "variant": "info|success|warning|error",
+        "dismissible": "boolean",
+        "icon": "boolean"
+      }
+    },
+    {
+      "type": "accordion",
+      "displayName": "Accordion",
+      "description": "Expandable content sections",
+      "properties": {
+        "sections": "array",
+        "allowMultiple": "boolean",
+        "defaultExpanded": "array"
+      }
+    }
+  ],
+  "elementCategories": {
+    "inputs": ["textbox", "textarea", "dropdown", "singlechoice", "multichoice", "numeric", "date", "datetime", "toggle", "toggle3state", "slider", "fileupload"],
+    "display": ["label", "alert", "progress", "spinner"],
+    "containers": ["section", "panel", "tabs", "accordion"],
+    "data": ["list", "grid"],
+    "actions": ["button", "link"]
+  },
+  "commonProperties": {
+    "id": "string",
+    "name": "string",
+    "label": "string",
+    "visible": "boolean",
+    "disabled": "boolean",
+    "tooltip": "string",
+    "cssClass": "string",
+    "style": "object",
+    "validation": "object",
+    "events": "object"
+  }
+}
