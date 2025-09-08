@@ -1,1 +1,13 @@
 /* Footer component specific styles - minimal, most styles in global */
+.app-footer {
+  background-color: #323130;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.app-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+}
