@@ -51,7 +51,7 @@ export class DynamicTemplateService {
       
       // Handle nested properties (e.g., status | lowercase)
       if (trimmedProperty.includes('|')) {
-        const [prop, filter] = trimmedProperty.split('|').map(p => p.trim());
+        const [prop, filter] = trimmedProperty.split('|').map((p: string) => p.trim());
         const value = this.getNestedProperty(data, prop);
         return this.applyFilter(value, filter);
       }

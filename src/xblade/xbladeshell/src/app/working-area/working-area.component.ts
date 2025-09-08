@@ -6,7 +6,7 @@ import { Subject, forkJoin } from 'rxjs';
 import { takeUntil, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-import { ConfigLoadService, DynamicTemplateService, LandingPageConfig, SampleData } from '../services';
+import { ConfigLoadService, DynamicTemplateService, LandingPageConfig, SampleData } from '../../services';
 
 @Component({
     selector: 'app-working-area',
