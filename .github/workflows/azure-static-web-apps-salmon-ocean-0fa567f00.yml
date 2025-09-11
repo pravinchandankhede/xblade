@@ -1,71 +1,46 @@
-name: Azure Static Web Apps CI/CD
+name: Build & Deploy Angular Blade Project
 
 on:
   push:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened, closed]
     branches:
       - main
 
 jobs:
-  build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+  build:
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-          lfs: false
-      - name: Debug - List directory structure
-        run: |
-          echo "=== Repository structure ==="
-          find . -type f -name "*.json" | head -20
-          echo "=== App location content ==="
-          ls -la ./src/xblade/xbladeshell/
-          echo "=== Checking for existing dist ==="
-          if [ -d "./src/xblade/xbladeshell/dist" ]; then
-            echo "Dist directory exists:"
-            ls -la ./src/xblade/xbladeshell/dist/
-          else
-            echo "No dist directory found yet"
-          fi
-      - name: Build And Deploy
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_OCEAN_0FA567F00 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-          action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "./src/xblade/xbladeshell" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
-      - name: Debug - List dist content after build
-        run: |
-          echo "=== Post-build directory structure ==="
-          echo "Current directory:"
-          pwd
-          ls -la
-          echo "=== Looking for dist directories ==="
-          find . -name "dist" -type d
-          echo "=== Content of any found dist directories ==="
-          find . -name "dist" -type d -exec ls -la {} \;
-          echo "=== Looking for index.html files ==="
-          find . -name "index.html" -type f
 
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
+    strategy:
+      matrix:
+        node-version: [20.x]
+
     steps:
-      - name: Close Pull Request
-        id: closepullrequest
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://npm.pkg.github.com'
+               
+      - name: Install dependencies
+        run: npm install
+        working-directory: /home/runner/work/xblade/xblade/src/xblade/xbladeshell
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+             
+      - name: Build project
+        run: npm run build
+        working-directory: /home/runner/work/xblade/xblade/src/xblade/xbladeshell
+
+      - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_OCEAN_0FA567F00 }}
-          action: "close"
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: 'upload'
+          app_location: '/home/runner/work/xblade/xblade/src/xblade/xbladeshell'
+          output_location: '/home/runner/work/xblade/xblade/src/xblade/xbladeshell/dist/xbladeshell'
