@@ -69,4 +69,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
           app_location: '/home/runner/work/xblade/xblade/src/xblade/xbladeshell'
-          output_location: '/home/runner/work/xblade/xblade/src/xblade/xbladeshell/dist/xbladeshell'
+          output_location: '/home/runner/work/xblade/xblade/src/xblade/xbladeshell/dist/xbladeshell/browser/'
