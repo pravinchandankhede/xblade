@@ -36,6 +36,32 @@ jobs:
         run: npm run build
         working-directory: /home/runner/work/xblade/xblade/src/xblade/xbladeshell
 
+      - name: Debug - Print dist folder structure
+        run: |
+          echo "=== Current working directory ==="
+          pwd
+          echo "=== List all directories in workspace ==="
+          ls -la /home/runner/work/xblade/xblade/
+          echo "=== Check xbladeshell directory ==="
+          ls -la /home/runner/work/xblade/xblade/src/xblade/xbladeshell/
+          echo "=== Looking for dist folder ==="
+          if [ -d "/home/runner/work/xblade/xblade/src/xblade/xbladeshell/dist" ]; then
+            echo "Dist directory found:"
+            ls -la /home/runner/work/xblade/xblade/src/xblade/xbladeshell/dist/
+            echo "=== Content of xbladeshell subfolder if exists ==="
+            if [ -d "/home/runner/work/xblade/xblade/src/xblade/xbladeshell/dist/xbladeshell" ]; then
+              ls -la /home/runner/work/xblade/xblade/src/xblade/xbladeshell/dist/xbladeshell/
+              echo "=== Files in xbladeshell dist ==="
+              find /home/runner/work/xblade/xblade/src/xblade/xbladeshell/dist/xbladeshell/ -type f | head -20
+            else
+              echo "No xbladeshell subfolder in dist"
+            fi
+          else
+            echo "No dist directory found"
+          fi
+          echo "=== Search for index.html anywhere ==="
+          find /home/runner/work/xblade/xblade/ -name "index.html" -type f 2>/dev/null || echo "No index.html found"
+
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
