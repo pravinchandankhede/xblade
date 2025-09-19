@@ -1,0 +1,86 @@
+<div class="sample-container">
+  <div class="header">
+    <h1>Supported Elements</h1>
+    <p>This component loads and displays all elements from the elements.json file via API call.</p>
+    <button (click)="loadElements()" class="refresh-btn" [disabled]="loading">
+      {{ loading ? 'Loading...' : 'Refresh Elements' }}
+    </button>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading elements...</p>
+  </div>
+
+  <!-- Error state -->
+  <div *ngIf="error" class="error">
+    <h3>Error</h3>
+    <p>{{ error }}</p>
+    <button (click)="loadElements()" class="retry-btn">Retry</button>
+  </div>
+
+  <!-- Elements display -->
+  <div *ngIf="!loading && !error && elements.length > 0" class="elements-container">
+    <!-- Summary -->
+    <div class="summary">
+      <h2>Summary</h2>
+      <p><strong>Total Elements:</strong> {{ elements.length }}</p>
+      <p><strong>Categories:</strong> {{ getCategoryNames().length }}</p>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories">
+      <h2>Elements by Category</h2>
+      <div *ngFor="let category of getCategoryNames()" class="category-section">
+        <h3 class="category-title">{{ category | titlecase }} ({{ getElementsByCategory(category).length }})</h3>
+        <div class="elements-grid">
+          <div *ngFor="let element of getElementsByCategory(category)" class="element-card">
+            <div class="element-header">
+              <h4>{{ element.displayName }}</h4>
+              <span class="element-type">{{ element.type }}</span>
+            </div>
+            <p class="element-description">{{ element.description }}</p>
+            <div class="element-properties">
+              <h5>Properties:</h5>
+              <ul>
+                <li *ngFor="let prop of getPropertyNames(element)">
+                  <strong>{{ prop }}:</strong> {{ element.properties[prop] }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Elements (Alternative flat view) -->
+    <div class="all-elements">
+      <h2>All Elements (Flat View)</h2>
+      <div class="elements-grid">
+        <div *ngFor="let element of elements" class="element-card">
+          <div class="element-header">
+            <h4>{{ element.displayName }}</h4>
+            <span class="element-type">{{ element.type }}</span>
+          </div>
+          <p class="element-description">{{ element.description }}</p>
+          <div class="element-properties">
+            <h5>Properties:</h5>
+            <ul>
+              <li *ngFor="let prop of getPropertyNames(element)">
+                <strong>{{ prop }}:</strong> {{ element.properties[prop] }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!loading && !error && elements.length === 0" class="empty-state">
+    <h3>No Elements Found</h3>
+    <p>The elements file appears to be empty or could not be loaded.</p>
+    <button (click)="loadElements()" class="retry-btn">Try Again</button>
+  </div>
+</div>
