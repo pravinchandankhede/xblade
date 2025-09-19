@@ -9,7 +9,6 @@ import { HeaderComponent } from './header';
 import { FooterComponent } from './footer';
 import { WorkingAreaComponent } from './working-area';
 import { BladeLoaderComponent } from './blade-loader';
-import { SampleComponent } from './sample';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { SampleComponent } from './sample';
     HttpClientModule,
     ShellComponent,
     HeaderComponent,
-    FooterComponent,
-    SampleComponent
+    FooterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

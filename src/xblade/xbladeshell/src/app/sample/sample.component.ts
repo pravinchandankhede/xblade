@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ElementsService, SupportedElement, ElementsData } from '../services/elements.service';
 
 @Component({
@@ -9,8 +9,10 @@ import { ElementsService, SupportedElement, ElementsData } from '../services/ele
   styleUrls: ['./sample.component.css'],
   standalone: true,
   imports: [
-    CommonModule,
-    HttpClientModule
+    CommonModule
+  ],
+  providers: [
+    ElementsService
   ]
 })
 export class SampleComponent implements OnInit {
@@ -19,7 +21,7 @@ export class SampleComponent implements OnInit {
   loading = false;
   error: string | null = null;
 
-  constructor(private elementsService: ElementsService) { }
+  constructor(private elementsService: ElementsService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.loadElements();
@@ -38,7 +40,7 @@ export class SampleComponent implements OnInit {
         this.categories = data.elementCategories;
         this.loading = false;
       },
-      error: (err) => {
+      error: (err: any) => {
         this.error = 'Failed to load elements: ' + err.message;
         this.loading = false;
         console.error('Error loading elements:', err);
