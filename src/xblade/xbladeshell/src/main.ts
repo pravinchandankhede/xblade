@@ -1,10 +1,10 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Routes } from '@angular/router';
 import { AppComponent } from './app/app.component';
 
 // Import routes
-const routes = [
+const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { 
     path: 'home', 
@@ -26,4 +26,4 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(),
     provideRouter(routes)
   ]
-}).catch(err => console.error(err));
+}).catch((err: any) => console.error(err));
