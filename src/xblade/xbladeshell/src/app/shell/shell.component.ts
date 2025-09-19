@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WorkingAreaComponent } from '../working-area';
+import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../footer';
 import { HeaderComponent } from '../header';
 
@@ -9,7 +9,7 @@ import { HeaderComponent } from '../header';
     styleUrls: ['./shell.component.css'],
     standalone: true,
     imports: [
-        WorkingAreaComponent,
+        RouterOutlet,
         HeaderComponent,
         FooterComponent
     ]
