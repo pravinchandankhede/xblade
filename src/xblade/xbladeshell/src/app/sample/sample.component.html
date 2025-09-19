@@ -1,16 +1,16 @@
 <div class="sample-container">
   <div class="header">
-    <h1>Supported Elements</h1>
-    <p>This component loads and displays all elements from the elements.json file via API call.</p>
+    <h1>UI Controls Demo</h1>
+    <p>Live interactive demos of all supported UI controls loaded from elements.json via API call.</p>
     <button (click)="loadElements()" class="refresh-btn" [disabled]="loading">
-      {{ loading ? 'Loading...' : 'Refresh Elements' }}
+      {{ loading ? 'Loading...' : 'Refresh Controls' }}
     </button>
   </div>
 
   <!-- Loading state -->
   <div *ngIf="loading" class="loading">
     <div class="spinner"></div>
-    <p>Loading elements...</p>
+    <p>Loading controls...</p>
   </div>
 
   <!-- Error state -->
@@ -20,58 +20,62 @@
     <button (click)="loadElements()" class="retry-btn">Retry</button>
   </div>
 
-  <!-- Elements display -->
-  <div *ngIf="!loading && !error && elements.length > 0" class="elements-container">
+  <!-- Controls demo -->
+  <div *ngIf="!loading && !error && elements.length > 0" class="demo-container">
     <!-- Summary -->
     <div class="summary">
-      <h2>Summary</h2>
-      <p><strong>Total Elements:</strong> {{ elements.length }}</p>
+      <h2>Demo Overview</h2>
+      <p><strong>Total Controls:</strong> {{ elements.length }}</p>
       <p><strong>Categories:</strong> {{ getCategoryNames().length }}</p>
+      <p><strong>Interactive:</strong> Try out each control below to see how they work!</p>
     </div>
 
-    <!-- Categories -->
+    <!-- Demo Controls by Category -->
     <div class="categories">
-      <h2>Elements by Category</h2>
       <div *ngFor="let category of getCategoryNames()" class="category-section">
-        <h3 class="category-title">{{ category | titlecase }} ({{ getElementsByCategory(category).length }})</h3>
-        <div class="elements-grid">
-          <div *ngFor="let element of getElementsByCategory(category)" class="element-card">
-            <div class="element-header">
-              <h4>{{ element.displayName }}</h4>
-              <span class="element-type">{{ element.type }}</span>
+        <h2 class="category-title">{{ category | titlecase }} Controls</h2>
+        <div class="controls-grid">
+          <div *ngFor="let element of getElementsByCategory(category); let i = index" class="control-card">
+            <div class="control-header">
+              <h3>{{ element.displayName }}</h3>
+              <span class="control-type-badge">{{ element.type }}</span>
             </div>
-            <p class="element-description">{{ element.description }}</p>
-            <div class="element-properties">
-              <h5>Properties:</h5>
-              <ul>
-                <li *ngFor="let prop of getPropertyNames(element)">
-                  <strong>{{ prop }}:</strong> {{ element.properties[prop] }}
-                </li>
-              </ul>
+            <p class="control-description">{{ element.description }}</p>
+            
+            <!-- Live Demo -->
+            <div class="control-demo-area">
+              <h5>Live Demo:</h5>
+              <app-demo-control-renderer 
+                [element]="element" 
+                [index]="i">
+              </app-demo-control-renderer>
+            </div>
+
+            <!-- Properties Reference -->
+            <div class="control-properties">
+              <h5>Available Properties:</h5>
+              <div class="properties-list">
+                <span *ngFor="let prop of getPropertyNames(element)" class="property-tag">
+                  <strong>{{ prop }}</strong>: {{ element.properties[prop] }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- All Elements (Alternative flat view) -->
-    <div class="all-elements">
-      <h2>All Elements (Flat View)</h2>
-      <div class="elements-grid">
-        <div *ngFor="let element of elements" class="element-card">
-          <div class="element-header">
-            <h4>{{ element.displayName }}</h4>
-            <span class="element-type">{{ element.type }}</span>
-          </div>
-          <p class="element-description">{{ element.description }}</p>
-          <div class="element-properties">
-            <h5>Properties:</h5>
-            <ul>
-              <li *ngFor="let prop of getPropertyNames(element)">
-                <strong>{{ prop }}:</strong> {{ element.properties[prop] }}
-              </li>
-            </ul>
-          </div>
+    <!-- Quick Demo Section -->
+    <div class="quick-demo-section">
+      <h2>Quick Demo - All Controls</h2>
+      <p>See all interactive controls in one place:</p>
+      <div class="quick-demo-grid">
+        <div *ngFor="let element of elements.slice(0, 12); let i = index" class="quick-demo-item">
+          <h6>{{ element.displayName }}</h6>
+          <app-demo-control-renderer 
+            [element]="element" 
+            [index]="i + 100">
+          </app-demo-control-renderer>
         </div>
       </div>
     </div>
@@ -79,8 +83,8 @@
 
   <!-- Empty state -->
   <div *ngIf="!loading && !error && elements.length === 0" class="empty-state">
-    <h3>No Elements Found</h3>
-    <p>The elements file appears to be empty or could not be loaded.</p>
+    <h3>No Controls Found</h3>
+    <p>The controls file appears to be empty or could not be loaded.</p>
     <button (click)="loadElements()" class="retry-btn">Try Again</button>
   </div>
 </div>

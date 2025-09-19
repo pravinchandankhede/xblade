@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { ElementsService, SupportedElement, ElementsData } from '../services/elements.service';
+import { DemoControlRendererComponent } from './demo-controls/demo-control-renderer.component';
 
 @Component({
   selector: 'app-sample',
@@ -9,7 +11,9 @@ import { ElementsService, SupportedElement, ElementsData } from '../services/ele
   styleUrls: ['./sample.component.css'],
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    DemoControlRendererComponent
   ],
   providers: [
     ElementsService
