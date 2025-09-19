@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ElementsService, SupportedElement, ElementsData } from '../services/elements.service';
 
 @Component({
   selector: 'app-sample',
   templateUrl: './sample.component.html',
-  styleUrls: ['./sample.component.css']
+  styleUrls: ['./sample.component.css'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    HttpClientModule
+  ]
 })
 export class SampleComponent implements OnInit {
   elements: SupportedElement[] = [];

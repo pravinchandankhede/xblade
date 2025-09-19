@@ -14,17 +14,17 @@ import { SampleComponent } from './sample';
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent,
-    HeaderComponent,
-    FooterComponent,
     WorkingAreaComponent,
-    BladeLoaderComponent,
-    SampleComponent
+    BladeLoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ShellComponent,
+    HeaderComponent,
+    FooterComponent,
+    SampleComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
