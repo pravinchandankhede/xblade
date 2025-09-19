@@ -2,6 +2,21 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+export interface SpinnerConfig {
+  type: string;
+  size: string;
+  color: string;
+  text: string;
+}
+
+export interface DemoSpinnerConfig {
+  size: string;
+  type: string;
+  color: string;
+  showText: boolean;
+  text: string;
+}
+
 @Component({
   selector: 'app-demo-spinner',
   standalone: true,
@@ -315,14 +330,14 @@ export class DemoSpinnerComponent {
   
   spinnersActive = true;
   
-  spinnerWithText = [
+  spinnerWithText: SpinnerConfig[] = [
     { type: 'border', size: 'medium', color: 'primary', text: 'Loading...' },
     { type: 'grow', size: 'medium', color: 'success', text: 'Processing...' },
     { type: 'border', size: 'small', color: 'warning', text: 'Please wait...' },
     { type: 'custom', size: 'medium', color: 'primary', text: 'Fetching data...' }
   ];
   
-  demoSpinner = {
+  demoSpinner: DemoSpinnerConfig = {
     size: 'medium',
     type: 'border',
     color: 'primary',
@@ -330,7 +345,7 @@ export class DemoSpinnerComponent {
     text: 'Loading...'
   };
   
-  getSpinnerClass(spinner: any): string {
+  getSpinnerClass(spinner: SpinnerConfig): string {
     let classes = [];
     
     if (spinner.type === 'border') {

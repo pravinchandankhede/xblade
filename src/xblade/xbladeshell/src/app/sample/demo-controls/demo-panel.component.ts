@@ -2,6 +2,16 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+export interface PanelData {
+  id: number;
+  title: string;
+  variant: string;
+  content: string;
+  collapsed: boolean;
+  editing: boolean;
+  showActions: boolean;
+}
+
 @Component({
   selector: 'app-demo-panel',
   standalone: true,
@@ -206,7 +216,7 @@ import { FormsModule } from '@angular/forms';
 export class DemoPanelComponent {
   @Input() element: any;
   
-  panels = [
+  panels: PanelData[] = [
     {
       id: 1,
       title: 'Information Panel',
@@ -271,16 +281,16 @@ export class DemoPanelComponent {
   
   private nextPanelId = 5;
   
-  editPanel(panel: any) {
+  editPanel(panel: PanelData) {
     panel.editing = !panel.editing;
   }
   
-  togglePanel(panel: any) {
+  togglePanel(panel: PanelData) {
     panel.collapsed = !panel.collapsed;
   }
   
   addPanel() {
-    const newPanel = {
+    const newPanel: PanelData = {
       id: this.nextPanelId++,
       title: `New Panel ${this.nextPanelId - 1}`,
       variant: 'default',

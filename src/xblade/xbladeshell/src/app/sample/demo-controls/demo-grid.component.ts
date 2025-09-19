@@ -72,36 +72,36 @@ export interface GridData {
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of pagedData; let i = index" [class.selected]="row.selected">
+            <tr *ngFor="let row of pagedData; let i = index" [class.selected]="row['selected']">
               <td *ngIf="selectable">
                 <input 
                   type="checkbox" 
-                  [(ngModel)]="row.selected"
+                  [(ngModel)]="row['selected']"
                   (ngModelChange)="onRowSelectionChange()">
               </td>
               <td *ngFor="let column of columns">
-                <span *ngIf="!row.editing">{{getDisplayValue(row, column.key)}}</span>
+                <span *ngIf="!row['editing']">{{getDisplayValue(row, column.key)}}</span>
                 <input 
-                  *ngIf="row.editing" 
+                  *ngIf="row['editing']" 
                   type="text" 
                   class="form-control form-control-sm"
                   [(ngModel)]="row[column.key]">
               </td>
               <td>
                 <button 
-                  *ngIf="!row.editing" 
+                  *ngIf="!row['editing']" 
                   class="btn btn-sm btn-outline-primary me-1" 
                   (click)="editRow(row)">
                   Edit
                 </button>
                 <button 
-                  *ngIf="row.editing" 
+                  *ngIf="row['editing']" 
                   class="btn btn-sm btn-success me-1" 
                   (click)="saveRow(row)">
                   Save
                 </button>
                 <button 
-                  *ngIf="row.editing" 
+                  *ngIf="row['editing']" 
                   class="btn btn-sm btn-secondary me-1" 
                   (click)="cancelEdit(row)">
                   Cancel
@@ -262,11 +262,11 @@ export class DemoGridComponent {
   }
   
   onSelectAllChange() {
-    this.pagedData.forEach(row => row.selected = this.selectAll);
+    this.pagedData.forEach(row => row['selected'] = this.selectAll);
   }
   
   onRowSelectionChange() {
-    this.selectAll = this.pagedData.every(row => row.selected);
+    this.selectAll = this.pagedData.every(row => row['selected']);
   }
   
   private applyFilter() {
@@ -342,23 +342,23 @@ export class DemoGridComponent {
   }
   
   editRow(row: GridData) {
-    row.editing = true;
-    row.originalData = { ...row };
+    row['editing'] = true;
+    row['originalData'] = { ...row };
   }
   
   saveRow(row: GridData) {
-    row.editing = false;
-    delete row.originalData;
+    row['editing'] = false;
+    delete row['originalData'];
   }
   
   cancelEdit(row: GridData) {
-    if (row.originalData) {
-      Object.keys(row.originalData).forEach(key => {
-        row[key] = row.originalData[key];
+    if (row['originalData']) {
+      Object.keys(row['originalData']).forEach(key => {
+        row[key] = row['originalData'][key];
       });
     }
-    row.editing = false;
-    delete row.originalData;
+    row['editing'] = false;
+    delete row['originalData'];
   }
   
   deleteRow(index: number) {
@@ -386,7 +386,7 @@ export class DemoGridComponent {
   }
   
   getSelectedRows(): GridData[] {
-    return this.data.filter(row => row.selected);
+    return this.data.filter(row => row['selected']);
   }
   
   getDisplayValue(row: GridData, key: string): string {
